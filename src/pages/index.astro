@@ -1,21 +1,64 @@
 ---
+import '../../src/styles/globals.css';
+
+
 import Layout from '../layouts/Layout.astro';
 import ContextAlert from '../components/ContextAlert.astro';
 import Markdown from '../components/Markdown.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Roadmap from '../components/Roadmap.astro';
+import SurveyForm from '../components/SurveyForm.astro';
 
 const explainer = `
-An Astro website can go way beyond static pages - on the right platform.
-
-Netlify supports not only [Streaming SSR](https://docs.astro.build/en/guides/server-side-rendering/) and fast [Edge Middleware](https://docs.astro.build/en/guides/middleware/), but also [on-demand revalidation](https://www.netlify.com/blog/cache-tags-and-purge-api-on-netlify/) and [stale-while-revalidate](https://www.netlify.com/blog/swr-and-fine-grained-cache-control/). 
-Any page or data can be rebuilt only when needed, without site visitors ever getting a performance hit.
+Welcome to my product playground. I build, you explore.
 `;
+
+const title= "Actualize with Sheshank";
+const projects = [
+// { 
+//     title: "AI-Powered Recipe Generator",
+//     description: "Discover new culinary delights with this AI-driven tool that creates unique recipes based on your preferences.",
+//     image: "/images/corgi.jpg", // Replace with actual image path
+//     link: "/ai-recipe-generator" 
+//   },  
+  { 
+    title: "AI-Powered Book Summaries",
+    description: "Get a quick summary of your next book and understand the main points. It is a good incentive for readers to decide if one wants to read the whole book",
+    image: "/images/corgi.jpg",
+    link: "/summarize-book" 
+  },
+  { 
+    title: "Personalized Learning Companion",
+    description: "An AI tutor that adapts to your learning style, providing customized exercises and feedback to help you master any subject.",
+    image: "/images/learning-by-doing.jpg",
+    link: "/learning-by-doing" 
+  }
+];
 ---
 
-<Layout title="Welcome to Astro.">
-    <ContextAlert class="mb-4" />
-    <h1 class="mb-10">Netlify Platform Starter for Astro</h1>
+<Layout title=>
+  <ContextAlert class="mb-4" />
+    <h1 class="mb-10">{title}</h1>
     <Markdown content={explainer} class="text-lg mb-10" />
+
+    <section class="project-catalog">
+      <h2>Projects</h2>
+      <div class="grid">
+        {projects.map((project) => <ProjectCard {...project} />)}
+      </div>
+    </section>
+
+    <!-- <Roadmap />  -->
+
+    <!-- <section class="about">
+      <h2>About Me & This Site</h2>
+      <p>I'm passionate about [Your Passion]. This site is my lab for turning ideas into reality.</p>
+      
+    </section> -->
+
+    <SurveyForm /> 
     <p class="mb-8">
-        <a href="https://docs.netlify.com/frameworks/astro/" class="btn btn-lg btn-primary sm:btn-wide">Read the Docs</a>
-    </p>
+      <a href="https://www.sheshank.org/" class="btn btn-lg btn-primary sm:btn-wide">Read more</a>
+  </p>
+  
 </Layout>

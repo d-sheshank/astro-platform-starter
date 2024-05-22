@@ -1,0 +1,33 @@
+---
+import '../../src/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AI-Powered Book Summaries">
+  <main>
+    <section class="project-hero">
+      <h1>AI-Powered Book Summaries</h1>
+      <p>Get a quick summary of your next book!</p>
+    </section>
+    <section class="demo">
+      <h2>Demo</h2>
+      <div id="demo-container">
+        <input type="text" id="book-input" placeholder="Enter Title and author..." />
+        <button onclick="generateSummary()">Generate Summary</button>
+        <div id="summary-output"></div>
+      
+        <script>
+          async function generateSummary() {
+            const ingredients = document.getElementById("book-input");
+            // Call your AI model API to generate a recipe based on the ingredients
+            // Display the generated recipe in the recipe-output div
+          }
+        </script>
+      </div>
+          
+      </section>
+      <section class="additional-info">
+      </section>
+
+  </main>
+</Layout>

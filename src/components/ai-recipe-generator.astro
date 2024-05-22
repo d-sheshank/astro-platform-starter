@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="AI-Powered Recipe Generator">
+  <main>
+    <section class="project-hero">
+      <h1>AI-Powered Recipe Generator</h1>
+      <p>Create amazing meals tailored to your tastes!</p>
+    </section>
+    <section class="demo">
+      <h2>Demo</h2>
+      <div id="demo-container">
+        <input type="text" id="ingredients-input" placeholder="Enter ingredients..." />
+        <button onclick="generateRecipe()">Generate Recipe</button>
+        <div id="recipe-output"></div>
+      
+        <script>
+          async function generateRecipe() {
+            const ingredients = document.getElementById("ingredients-input").value;
+            // Call your AI model API to generate a recipe based on the ingredients
+            // Display the generated recipe in the recipe-output div
+          }
+        </script>
+      </div>
+          
+      </section>
+      <section class="additional-info">
+      </section>
+
+  </main>
+</Layout>

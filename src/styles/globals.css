@@ -48,3 +48,15 @@
         @apply text-neutral-400 bg-neutral-700;
     }
 }
+
+/* Basic styling for header, project cards, etc. */
+.hero { /* ... */ }
+.project-card { /* ... */ }
+#timeline-container { /* ... */ }
+
+/* Grid layout for project cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}

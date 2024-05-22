@@ -1,14 +1,43 @@
-<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
+---
 
-    <h1>About Me</h1>
-    <h2>... and your AI agents</h2>
+import SurveyForm from '../components/SurveyForm.astro';
 
-    <p>
-        My name is Sheshank Dudyala, I belive in living life to the fullest and giving my heart out to everything I do. You could read more about me at
-        www.sheshank.org
-    </p>
+const pageTitle = 'About Me';
+const identity = {
+    Name: 'Sheshank Dudyala',
+    occupation: 'Entrepreneur',
+    hobbies: ['Triathlon', 'Learning', 'Traveling', 'Teaching'],
+    profilePage: 'https://www.sheshank.org'
+};
 
-    <p>Aim of this website is to provide you with useful <b>products you want.</b></p>
-</body>
+const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Astro', 'Writing Docs'];
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{pageTitle}</title>
+    </head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/about/">About</a>
+        <a href={identity.profilePage}>sheshank.org</a>
+
+        <h1>{pageTitle}</h1>
+        <h2>... and your AI agents</h2>
+        <p>Aim of this website is to provide you with useful <b>products you want.</b></p>
+ 
+        <p>Few facts about me:</p>
+        <ul>
+            <li>My name is {identity.Name}</li>
+            <li>I belive in living life to the fullest and giving my heart out to everything I do.</li>
+            {identity.hobbies.length >= 2 &&
+                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+              }
+        </ul>
+        <a href={identity.profilePage}>Read more...</a>
+
+        <SurveyForm /> 
+    </body>
+</html>
