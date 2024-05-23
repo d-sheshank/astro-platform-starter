@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Container from './Container.astro';
+import SignupForm from './SignupForm.astro';
+
+import FadeIn from './FadeIn.astro';
+
+interface Props {
+    title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<style>
+  .hero__article {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+    text-align: center;
+  }
+</style>
+
+<Layout title={title}>
+  <Container narrow>
+    <article class="hero__article">
+      <h1 class="fade-in">Coming Soon</h1>
+      <p class="fade-in">Be the first to know when our new project is live!</p>
+      <SignupForm />
+    </article>
+  </Container>
+</Layout>

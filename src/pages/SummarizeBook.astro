@@ -1,0 +1,90 @@
+---
+import { colors } from 'unique-names-generator';
+import '../../src/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+
+// Fetch function to communicate with the Gemini API (client-side for this example)
+async function fetchSummary(bookInput: string) {
+  const response = await fetch('/api/summary', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ bookInput }),
+  });
+
+  if (!response.ok) {
+    throw new Error('Failed to generate summary');
+  }
+
+  return response.json();
+}
+---
+
+<Layout title="AI-Powered Book Summaries">
+  <main>
+    <section class="project-hero">
+      <h1>AI-Powered Book Summaries</h1>
+      <p>Get a quick summary of your next book!</p>
+    </section>
+    <section class="demo">
+      <h2>Demo</h2>
+      <div id="demo-container">
+        <input style="color:black" type="text" id="book-input" placeholder="Enter Title and author..." required/>
+        <button onclick="generateSummary()">Generate Summary</button>
+        <div id="summary-output"></div>
+      </div>
+
+      <script>
+import { setMaxIdleHTTPParsers } from "http";
+import { waitForDebugger } from "inspector";
+
+        async function generateSummary() {
+          const bookInput = document.getElementById("book-input");
+          const summaryOutput = document.getElementById("summary-output");
+
+          summaryOutput.textContent = 'Generating summary...'; // Loading indicator
+          
+          await new Promise(r => setTimeout(r, 2000));
+          
+          summaryOutput.textContent = 'Error generating summary. Please try again.';
+
+        }
+      </script> 
+    </section>
+  </main>
+</Layout>
+
+
+<!-- ---
+import { colors } from 'unique-names-generator';
+import '../../src/styles/globals.css';
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="AI-Powered Book Summaries">
+  <main>
+    <section class="project-hero">
+      <h1>AI-Powered Book Summaries</h1>
+      <p>Get a quick summary of your next book!</p>
+    </section>
+    <section class="demo">
+      <h2>Demo</h2>
+      <div id="demo-container">
+        <input style="color:black" type="text" id="book-input" placeholder="Enter Title and author..." required/>
+        <button onclick="generateSummary()">Generate Summary</button>
+        <div id="summary-output"></div>
+      
+        <script>
+          async function generateSummary() {
+            const attributes = document.getElementById("book-input").value;
+            // AI model API to generate summary based on the attributes
+          }
+        </script>
+      </div>
+          
+      </section>
+      <section class="additional-info">
+      </section>
+
+  </main>
+</Layout> -->
